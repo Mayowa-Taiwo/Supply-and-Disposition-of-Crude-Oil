@@ -1,0 +1,1181 @@
+{
+  "compatibilityLevel": 1567,
+  "model": {
+    "annotations": [
+      {
+        "name": "PBI_QueryOrder",
+        "value": "[\"attributes\",\"Date\",\"petroleum_product\",\"province\",\"supply_disposition_co_ng\",\"units\"]"
+      },
+      {
+        "name": "__PBI_TimeIntelligenceEnabled",
+        "value": "1"
+      },
+      {
+        "name": "PBIDesktopVersion",
+        "value": "2.123.742.0 (23.11)"
+      },
+      {
+        "name": "PBI_ProTooling",
+        "value": "[\"CalcGroup\",\"DevMode\"]"
+      }
+    ],
+    "culture": "en-US",
+    "cultures": [
+      {
+        "name": "en-US",
+        "linguisticMetadata": {
+          "content": {
+            "DynamicImprovement": "HighConfidence",
+            "Language": "en-US",
+            "Version": "1.0.0"
+          },
+          "contentType": "json"
+        }
+      }
+    ],
+    "dataAccessOptions": {
+      "legacyRedirects": true,
+      "returnErrorValuesAsNull": true
+    },
+    "defaultPowerBIDataSourceVersion": "powerBI_V3",
+    "discourageImplicitMeasures": true,
+    "relationships": [
+      {
+        "name": "8efbaf42-69e3-4f1e-8bee-76eae4c382da",
+        "annotations": [
+          {
+            "name": "PBI_IsFromSource",
+            "value": "FS"
+          }
+        ],
+        "fromColumn": "sdid",
+        "fromTable": "supply_disposition_co_ng",
+        "toColumn": "sdid",
+        "toTable": "attributes"
+      },
+      {
+        "name": "edb1c621-f909-4328-80ef-508d7dd74d2a",
+        "annotations": [
+          {
+            "name": "PBI_IsFromSource",
+            "value": "FS"
+          }
+        ],
+        "fromColumn": "supply_date",
+        "fromTable": "supply_disposition_co_ng",
+        "toColumn": "supply_date",
+        "toTable": "Date"
+      },
+      {
+        "name": "55ac2fa9-4428-4bce-85d9-e26eb61fcbe0",
+        "annotations": [
+          {
+            "name": "PBI_IsFromSource",
+            "value": "FS"
+          }
+        ],
+        "fromColumn": "ppid",
+        "fromTable": "supply_disposition_co_ng",
+        "toColumn": "PPID",
+        "toTable": "petroleum_product"
+      },
+      {
+        "name": "dfa8e206-9a1b-4808-ab42-51e80685c7fb",
+        "annotations": [
+          {
+            "name": "PBI_IsFromSource",
+            "value": "FS"
+          }
+        ],
+        "fromColumn": "locid",
+        "fromTable": "supply_disposition_co_ng",
+        "toColumn": "LocID",
+        "toTable": "province"
+      },
+      {
+        "name": "a9b28cb5-7fd4-47ae-994a-b07f68c9432b",
+        "annotations": [
+          {
+            "name": "PBI_IsFromSource",
+            "value": "FS"
+          }
+        ],
+        "fromColumn": "uomid",
+        "fromTable": "supply_disposition_co_ng",
+        "toColumn": "UOMID",
+        "toTable": "units"
+      }
+    ],
+    "sourceQueryCulture": "en-CA",
+    "tables": [
+      {
+        "name": "DateTableTemplate_5929b0e5-b1bd-4f00-b891-ced35f2ed5d0",
+        "annotations": [
+          {
+            "name": "__PBI_TemplateDateTable",
+            "value": "true"
+          },
+          {
+            "name": "DefaultItem",
+            "value": "DateHierarchy"
+          }
+        ],
+        "columns": [
+          {
+            "name": "Date",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              }
+            ],
+            "dataCategory": "PaddedDateTableDates",
+            "dataType": "dateTime",
+            "formatString": "General Date",
+            "isHidden": true,
+            "isNameInferred": true,
+            "lineageTag": "50c38f23-33a0-4082-b53b-5a11e77b32bc",
+            "sourceColumn": "[Date]",
+            "summarizeBy": "none",
+            "type": "calculatedTableColumn"
+          },
+          {
+            "name": "Year",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "Year"
+              }
+            ],
+            "dataCategory": "Years",
+            "dataType": "int64",
+            "expression": "YEAR([Date])",
+            "formatString": "0",
+            "isHidden": true,
+            "lineageTag": "1aee7be2-913c-4c2f-a98d-4672962ac954",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "MonthNo",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "MonthNumber"
+              }
+            ],
+            "dataCategory": "MonthOfYear",
+            "dataType": "int64",
+            "expression": "MONTH([Date])",
+            "formatString": "0",
+            "isHidden": true,
+            "lineageTag": "0a8aaab8-cf2f-4c6a-8df4-d82e3aa31faa",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "Month",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "Month"
+              }
+            ],
+            "dataCategory": "Months",
+            "dataType": "string",
+            "expression": "FORMAT([Date], \"MMMM\")",
+            "isHidden": true,
+            "lineageTag": "eeb00828-4f28-45ba-b806-42f1e8d34bd1",
+            "sortByColumn": "MonthNo",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "QuarterNo",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "QuarterNumber"
+              }
+            ],
+            "dataCategory": "QuarterOfYear",
+            "dataType": "int64",
+            "expression": "INT(([MonthNo] + 2) / 3)",
+            "formatString": "0",
+            "isHidden": true,
+            "lineageTag": "e9cdb7e7-7332-4b37-8401-069ee6834356",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "Quarter",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "Quarter"
+              }
+            ],
+            "dataCategory": "Quarters",
+            "dataType": "string",
+            "expression": "\"Qtr \" & [QuarterNo]",
+            "isHidden": true,
+            "lineageTag": "08f922f0-9d85-450d-9bea-26f537e1e2f4",
+            "sortByColumn": "QuarterNo",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "Day",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "Day"
+              }
+            ],
+            "dataCategory": "DayOfMonth",
+            "dataType": "int64",
+            "expression": "DAY([Date])",
+            "formatString": "0",
+            "isHidden": true,
+            "lineageTag": "2eff397a-7149-4861-9146-9c43bd3ecc4f",
+            "summarizeBy": "none",
+            "type": "calculated"
+          }
+        ],
+        "hierarchies": [
+          {
+            "name": "Date Hierarchy",
+            "annotations": [
+              {
+                "name": "TemplateId",
+                "value": "DateHierarchy"
+              }
+            ],
+            "levels": [
+              {
+                "name": "Year",
+                "column": "Year",
+                "lineageTag": "8f6e344b-8194-48d6-9487-dad7ea7dfc54",
+                "ordinal": 0
+              },
+              {
+                "name": "Quarter",
+                "column": "Quarter",
+                "lineageTag": "ce6511b5-6320-43df-b9c3-b915c9e82d62",
+                "ordinal": 1
+              },
+              {
+                "name": "Month",
+                "column": "Month",
+                "lineageTag": "4646208f-0280-476b-b585-58d523042065",
+                "ordinal": 2
+              },
+              {
+                "name": "Day",
+                "column": "Day",
+                "lineageTag": "0310414a-d344-4739-8a50-0c2e7947b7c6",
+                "ordinal": 3
+              }
+            ],
+            "lineageTag": "bdd5dac4-c82b-471a-96bf-f695f8584c97"
+          }
+        ],
+        "isHidden": true,
+        "isPrivate": true,
+        "lineageTag": "e581ffae-c7ec-49dd-89da-c11a497a87a5",
+        "partitions": [
+          {
+            "name": "DateTableTemplate_5929b0e5-b1bd-4f00-b891-ced35f2ed5d0",
+            "mode": "import",
+            "source": {
+              "expression": "Calendar(Date(2015,1,1), Date(2015,1,1))",
+              "type": "calculated"
+            }
+          }
+        ]
+      },
+      {
+        "name": "attributes",
+        "annotations": [
+          {
+            "name": "PBI_ResultType",
+            "value": "Table"
+          },
+          {
+            "name": "PBI_NavigationStepName",
+            "value": "Navigation"
+          }
+        ],
+        "columns": [
+          {
+            "name": "sdid",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "8dba289b-33be-4fef-a07e-9954ba5aecad",
+            "sourceColumn": "sdid",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "attributes",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "d5377fe5-7ea0-4b0e-afa9-5779270a8404",
+            "sourceColumn": "attributes",
+            "summarizeBy": "none"
+          }
+        ],
+        "lineageTag": "40fc00de-e365-44e1-827a-a09fffc08593",
+        "partitions": [
+          {
+            "name": "attributes",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    Source = Sql.Database(\".\", \"supply_disposition_co_ng\"),",
+                "    dbo_attributes = Source{[Schema=\"dbo\",Item=\"attributes\"]}[Data],",
+                "    #\"Removed Columns\" = Table.RemoveColumns(dbo_attributes,{\"supply_disposition_co_ng\"}),",
+                "    #\"Renamed Columns\" = Table.RenameColumns(#\"Removed Columns\",{{\"SDID\", \"sdid\"}})",
+                "in",
+                "    #\"Renamed Columns\""
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "Date",
+        "annotations": [
+          {
+            "name": "PBI_ResultType",
+            "value": "Table"
+          },
+          {
+            "name": "PBI_NavigationStepName",
+            "value": "Navigation"
+          }
+        ],
+        "columns": [
+          {
+            "name": "supply_date",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "dateTime",
+            "formatString": "General Date",
+            "isKey": true,
+            "lineageTag": "f2cb8140-f61b-4aa2-b530-9354682748a3",
+            "sourceColumn": "supply_date",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Year",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "changedProperties": [
+              {
+                "property": "IsHidden"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "isHidden": true,
+            "lineageTag": "a0451d80-ab06-4422-a64e-ef2679ad44f2",
+            "sourceColumn": "Year",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Quarter",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "changedProperties": [
+              {
+                "property": "IsHidden"
+              }
+            ],
+            "dataType": "string",
+            "isHidden": true,
+            "lineageTag": "a5de47af-e69f-4f18-8e84-48d326580d30",
+            "sourceColumn": "Quarter",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Month",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "changedProperties": [
+              {
+                "property": "IsHidden"
+              },
+              {
+                "property": "SortByColumn"
+              }
+            ],
+            "dataType": "string",
+            "isHidden": true,
+            "lineageTag": "ac2b1491-95d5-457a-a9b6-8174233df2d2",
+            "sortByColumn": "Month.No",
+            "sourceColumn": "Month",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Month.No",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "59bcca85-fbb0-4864-ad11-dbb3dc5df6ff",
+            "sourceColumn": "Month.No",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Quarter No",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "expression": "QUARTER('Date'[supply_date])",
+            "formatString": "0",
+            "isDataTypeInferred": true,
+            "lineageTag": "1280395d-9322-435f-8f5b-6aa00b242f3c",
+            "summarizeBy": "none",
+            "type": "calculated"
+          }
+        ],
+        "dataCategory": "Time",
+        "hierarchies": [
+          {
+            "name": "Year Hierarchy",
+            "levels": [
+              {
+                "name": "Year",
+                "column": "Year",
+                "lineageTag": "7ecb8a78-d22e-4ca6-850a-247b1e281bd7",
+                "ordinal": 0
+              },
+              {
+                "name": "Quarter",
+                "column": "Quarter",
+                "lineageTag": "16ff43ed-6608-47f0-97fd-b5213729b24a",
+                "ordinal": 1
+              },
+              {
+                "name": "Month",
+                "column": "Month",
+                "lineageTag": "4a206a0e-0163-4084-9835-4e4ba16e8669",
+                "ordinal": 2
+              }
+            ],
+            "lineageTag": "ef8d7ce8-9ea7-49ad-bd42-0fcc59ebb661"
+          }
+        ],
+        "lineageTag": "50121cc5-3ece-4076-a48e-4f723e9814cc",
+        "partitions": [
+          {
+            "name": "Date",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    Source = Sql.Database(\".\", \"supply_disposition_co_ng\"),",
+                "    dbo_Date = Source{[Schema=\"dbo\",Item=\"Date\"]}[Data],",
+                "    #\"Removed Columns\" = Table.RemoveColumns(dbo_Date,{\"Fact_Supply and Disposition\", \"supply_disposition_co_ng\"})",
+                "in",
+                "    #\"Removed Columns\""
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "petroleum_product",
+        "annotations": [
+          {
+            "name": "PBI_ResultType",
+            "value": "Table"
+          },
+          {
+            "name": "PBI_NavigationStepName",
+            "value": "Navigation"
+          }
+        ],
+        "columns": [
+          {
+            "name": "PPID",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "changedProperties": [
+              {
+                "property": "IsHidden"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "isHidden": true,
+            "lineageTag": "d6fcc07a-be4f-4416-8f74-ab056ee3af8d",
+            "sourceColumn": "PPID",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Petroleum Product",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "b7f51326-3aa3-4371-90d8-da1b1f7e9c75",
+            "sourceColumn": "Petroleum Product",
+            "summarizeBy": "none"
+          }
+        ],
+        "lineageTag": "290e3fe7-f901-4bde-9c58-e30bce2a27ec",
+        "partitions": [
+          {
+            "name": "petroleum_product",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    Source = Sql.Database(\".\", \"supply_disposition_co_ng\"),",
+                "    dbo_petroleum_product = Source{[Schema=\"dbo\",Item=\"petroleum_product\"]}[Data],",
+                "    #\"Removed Columns\" = Table.RemoveColumns(dbo_petroleum_product,{\"supply_disposition_co_ng\"})",
+                "in",
+                "    #\"Removed Columns\""
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "province",
+        "annotations": [
+          {
+            "name": "PBI_ResultType",
+            "value": "Table"
+          },
+          {
+            "name": "PBI_NavigationStepName",
+            "value": "Navigation"
+          }
+        ],
+        "columns": [
+          {
+            "name": "LocID",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "changedProperties": [
+              {
+                "property": "IsHidden"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "isHidden": true,
+            "lineageTag": "3991c1be-b4f3-4699-910c-979df167c6e2",
+            "sourceColumn": "LocID",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Location",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataCategory": "StateOrProvince",
+            "dataType": "string",
+            "lineageTag": "9035eeae-616e-4bcc-a6ae-ef4afbf298c3",
+            "sourceColumn": "Location",
+            "summarizeBy": "none"
+          }
+        ],
+        "lineageTag": "ecc1223c-9e20-4d1d-8310-0574a4bbfcd1",
+        "partitions": [
+          {
+            "name": "province",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    Source = Sql.Database(\".\", \"supply_disposition_co_ng\"),",
+                "    dbo_province = Source{[Schema=\"dbo\",Item=\"province\"]}[Data],",
+                "    #\"Removed Columns\" = Table.RemoveColumns(dbo_province,{\"supply_disposition_co_ng\"})",
+                "in",
+                "    #\"Removed Columns\""
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "supply_disposition_co_ng",
+        "annotations": [
+          {
+            "name": "PBI_ResultType",
+            "value": "Table"
+          },
+          {
+            "name": "PBI_NavigationStepName",
+            "value": "Navigation"
+          }
+        ],
+        "columns": [
+          {
+            "name": "supply_date",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "UnderlyingDateTimeDataType",
+                "value": "Date"
+              }
+            ],
+            "changedProperties": [
+              {
+                "property": "IsHidden"
+              }
+            ],
+            "dataType": "dateTime",
+            "formatString": "Long Date",
+            "isHidden": true,
+            "lineageTag": "f66bb560-e3b4-4316-8aa0-0adcf10b4d19",
+            "sourceColumn": "supply_date",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "locid",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "changedProperties": [
+              {
+                "property": "IsHidden"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "527822d5-abda-4c6b-94a6-17fed20f390e",
+            "sourceColumn": "locid",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "ppid",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "33f1d124-a5ef-40d8-8478-66224f193cb8",
+            "sourceColumn": "ppid",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "sdid",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "4a39d483-af0c-44d0-9521-51ff044a13dd",
+            "sourceColumn": "sdid",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "uomid",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "changedProperties": [
+              {
+                "property": "IsHidden"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "isHidden": true,
+            "lineageTag": "0c618477-36be-4b4d-9653-e0cf60276919",
+            "sourceColumn": "uomid",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "volume_M3/bbls)",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              }
+            ],
+            "changedProperties": [
+              {
+                "property": "IsHidden"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "isHidden": true,
+            "lineageTag": "edc2d4ea-5f61-4544-864b-0945ef62b789",
+            "sourceColumn": "volume_M3/bbls)",
+            "summarizeBy": "none"
+          }
+        ],
+        "lineageTag": "ef138eaa-43ed-49b3-9490-919a3d67188a",
+        "measures": [
+          {
+            "name": "Total volume",
+            "expression": "sum(supply_disposition_co_ng[volume_M3/bbls)])",
+            "formatString": "#,0",
+            "lineageTag": "e91d1cad-7ac0-4f72-a6ea-81a5685453ef"
+          },
+          {
+            "name": "MetricName",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "expression": "SELECTEDMEASURE()",
+            "lineageTag": "5c17913a-2cde-4f80-93a1-7d0af6d957ec"
+          },
+          {
+            "name": "Drop/increase in volume produced",
+            "expression": [
+              "",
+              "//calculates the drop/increase in volume of crude oil//",
+              "VAR Dropinvolumeproduced2020 = calculate([Total volume],'Date'[Year] = 2020)",
+              "var DropinvolumeProduced2023 = CALCULATE([Total volume],'Date'[Year] =2023)",
+              "",
+              "RETURN",
+              "        DIVIDE((DropinvolumeProduced2023-Dropinvolumeproduced2020),DropinvolumeProduced2023)"
+            ],
+            "formatString": "0%;-0%;0%",
+            "lineageTag": "c2f25ad7-4c5c-41e8-9256-51f0c42dfc48"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "supply_disposition_co_ng",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    Source = Sql.Database(\".\", \"supply_disposition_co_ng\"),",
+                "    dbo_supply_disposition_co_ng = Source{[Schema=\"dbo\",Item=\"supply_disposition_co_ng\"]}[Data],",
+                "    #\"Removed Columns\" = Table.RemoveColumns(dbo_supply_disposition_co_ng,{\"Date\", \"attributes\", \"petroleum_product\", \"province\", \"units\", \"Volume (m3/bbl)\"}),",
+                "    #\"Renamed Columns\" = Table.RenameColumns(#\"Removed Columns\",{{\"Volume (M3/bbls)\", \"volume_M3/bbls)\"}, {\"LocID\", \"locid\"}, {\"PPID\", \"ppid\"}, {\"SDID\", \"sdid\"}, {\"UOMID\", \"uomid\"}}),",
+                "    #\"Changed Type\" = Table.TransformColumnTypes(#\"Renamed Columns\",{{\"supply_date\", type date}}),",
+                "    #\"Removed Duplicates\" = Table.Distinct(#\"Changed Type\")",
+                "in",
+                "    #\"Removed Duplicates\""
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "units",
+        "annotations": [
+          {
+            "name": "PBI_ResultType",
+            "value": "Table"
+          },
+          {
+            "name": "PBI_NavigationStepName",
+            "value": "Navigation"
+          }
+        ],
+        "columns": [
+          {
+            "name": "UOMID",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "a8f8b552-87d9-42c9-9e13-3a974efe5a8f",
+            "sourceColumn": "UOMID",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Unit of measure",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "32179f2b-b36b-4870-920d-00676dc42cde",
+            "sourceColumn": "Unit of measure",
+            "summarizeBy": "none"
+          }
+        ],
+        "lineageTag": "f90aa26a-4b48-44c0-8f1d-9a5b2f398660",
+        "partitions": [
+          {
+            "name": "units",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    Source = Sql.Database(\".\", \"supply_disposition_co_ng\"),",
+                "    dbo_units = Source{[Schema=\"dbo\",Item=\"units\"]}[Data],",
+                "    #\"Removed Columns\" = Table.RemoveColumns(dbo_units,{\"supply_disposition_co_ng\"})",
+                "in",
+                "    #\"Removed Columns\""
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "PRODUCTION ANALYSIS",
+        "calculationGroup": {
+          "calculationItems": [
+            {
+              "name": "Current",
+              "expression": [
+                "",
+                "    SELECTEDMEASURE ()"
+              ]
+            },
+            {
+              "name": "Net Field Production",
+              "expression": [
+                "",
+                "CALCULATE (SELECTEDMEASURE (),  ",
+                "    'attributes'[sdid] = 23)   "
+              ]
+            },
+            {
+              "name": "In-situ Bitumen production",
+              "expression": [
+                "",
+                " CALCULATE (SELECTEDMEASURE (),  ",
+                "    'attributes'[sdid] = 18) "
+              ]
+            },
+            {
+              "name": "Equivalent Product Production",
+              "expression": [
+                "",
+                "CALCULATE (SELECTEDMEASURE (),  ",
+                "    'attributes'[sdid] = 6)  "
+              ]
+            },
+            {
+              "name": "Total Crude Oil Production",
+              "expression": [
+                "",
+                "    CALCULATE(SELECTEDMEASURE(),",
+                "    'attributes'[sdid] = 5)"
+              ]
+            },
+            {
+              "name": "Synthetic Crude Oil production",
+              "expression": [
+                "",
+                "CALCULATE(SELECTEDMEASURE(),",
+                "'attributes'[sdid] = 29)",
+                ""
+              ]
+            }
+          ]
+        },
+        "columns": [
+          {
+            "name": "Production Metrics",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "55b12a28-02d5-475a-a052-0273054a44cd",
+            "sortByColumn": "Ordinal",
+            "sourceColumn": "Name",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Ordinal",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "7e296670-d617-442c-b3e8-c12c2d6a2632",
+            "sourceColumn": "Ordinal",
+            "summarizeBy": "sum"
+          }
+        ],
+        "lineageTag": "85545446-4d26-4fb7-bed1-142649bd11ba",
+        "partitions": [
+          {
+            "name": "PRODUCTION ANALYSIS",
+            "mode": "import",
+            "source": {
+              "type": "calculationGroup"
+            }
+          }
+        ]
+      },
+      {
+        "name": "CONSUMPTION ANALYSIS",
+        "calculationGroup": {
+          "calculationItems": [
+            {
+              "name": "Total Imports",
+              "expression": [
+                "",
+                "",
+                "CALCULATE(SELECTEDMEASURE(),'attributes'[sdid] = 15)"
+              ]
+            },
+            {
+              "name": "Canadian Refineries Input",
+              "expression": [
+                "",
+                "    CALCULATE(SELECTEDMEASURE(),'attributes'[sdid] = 19)"
+              ]
+            },
+            {
+              "name": "Exports to Other Countries",
+              "expression": [
+                "",
+                "    CALCULATE(SELECTEDMEASURE(),",
+                "    ABS('attributes'[sdid] = 7))"
+              ]
+            },
+            {
+              "name": "Total Exports",
+              "expression": [
+                "",
+                "    CALCULATE(SELECTEDMEASURE(), ",
+                "            'attributes'[sdid] = 11)",
+                "",
+                "    "
+              ]
+            },
+            {
+              "name": "Balance of trade",
+              "expression": [
+                "",
+                "(CALCULATE(SELECTEDMEASURE(),attributes[sdid] = 11)) - (CALCULATE(SELECTEDMEASURE(),'attributes'[sdid] = 15)",
+                ")"
+              ]
+            },
+            {
+              "name": "Total Volume",
+              "expression": "SELECTEDMEASURE()"
+            }
+          ],
+          "precedence": 1
+        },
+        "columns": [
+          {
+            "name": "Consumption Metrics:",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "469ecfff-8c2f-4c75-a8e2-3c998aedb7b3",
+            "sortByColumn": "Ordinal",
+            "sourceColumn": "Name",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Ordinal",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "240b8276-761e-4ad5-9f0b-9e217a493acc",
+            "sourceColumn": "Ordinal",
+            "summarizeBy": "sum"
+          }
+        ],
+        "lineageTag": "5e6570c9-7dea-4cec-b0f0-ca21e3a64ebb",
+        "partitions": [
+          {
+            "name": "CONSUMPTION ANALYSIS",
+            "mode": "import",
+            "source": {
+              "type": "calculationGroup"
+            }
+          }
+        ]
+      },
+      {
+        "name": "INVENTORY ANALYSIS",
+        "calculationGroup": {
+          "calculationItems": [
+            {
+              "name": "Closing Inventory",
+              "expression": [
+                "",
+                "CALCULATE(SELECTEDMEASURE(),'attributes'[sdid] = 1)"
+              ]
+            },
+            {
+              "name": "Opening Inventory",
+              "expression": [
+                "",
+                "CALCULATE(SELECTEDMEASURE(),'attributes'[sdid] = 26)"
+              ]
+            },
+            {
+              "name": "Net Inventory Change",
+              "expression": [
+                "",
+                "    CALCULATE(SELECTEDMEASURE(),'attributes'[sdid] = 24)"
+              ]
+            }
+          ],
+          "precedence": 2
+        },
+        "columns": [
+          {
+            "name": "Inventory Metrics:",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "ec2fb6a9-5f38-4c66-8afd-234f8672d160",
+            "sortByColumn": "Ordinal",
+            "sourceColumn": "Name",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Ordinal",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "c57f1a0b-46a5-4a61-b460-3d76c334f080",
+            "sourceColumn": "Ordinal",
+            "summarizeBy": "sum"
+          }
+        ],
+        "lineageTag": "d9056974-f4a5-4808-a840-bbe8f75ae009",
+        "partitions": [
+          {
+            "name": "INVENTORY ANALYSIS",
+            "mode": "import",
+            "source": {
+              "type": "calculationGroup"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}
